@@ -1,0 +1,17 @@
+/*
+ * counter.c
+ *
+ *  Created on: 27.09.2017
+ *      Author: z003nc3v
+ */
+
+#include <stdio.h>
+#include "io.h"
+#include "system.h"
+
+#include DELAY 1000000
+
+int main (void)
+{
+	return 0;
+}

@@ -1,0 +1,36 @@
+/*
+ * counter.c
+ *
+ *  Created on: 27.09.2017
+ *      Author: z003nc3v
+ */
+
+#include <stdio.h>
+#include "io.h"
+#include "system.h"
+
+#define DELAY 1000000
+
+int main (void)
+{
+	int counter = 0;
+	unsigned int wait;
+
+	printf("Let's start counting!");
+	IOWR_8DIRECT(LEDS_BASE, 0, 0);
+
+	while(1)
+	{
+		counter++;
+		printf("counter = %d\n", counter);
+
+		IOWR_8DIRECT(LEDS_BASE, 0, counter);
+
+		for(wait = 0; wait < DELAY; wait++)
+		{
+			asm volatile("nop");
+		}
+	}
+
+	return 0;
+}
